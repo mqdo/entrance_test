@@ -1,3 +1,5 @@
+// mảng ký tự 16bit để ghép thành mã màu
+
 const arrayOfColorFunctions = [
   "0",
   "1",
@@ -18,6 +20,8 @@ const arrayOfColorFunctions = [
 ];
 
 
+// function tạo mã màu ngẫu nhiên
+
 function newColorFind() {
   let randomColorString = "#";
   for (let x = 0; x < 6; x++) {
@@ -28,6 +32,8 @@ function newColorFind() {
   return(randomColorString);
 }
 
+// function đổi màu nền khi nhấn nút
+
 function changeColor() {
   let color = newColorFind();
   document.body.style.background = "";
@@ -37,6 +43,8 @@ function changeColor() {
   grd.style.display = 'none';
 }
 
+// function copy mã màu vào clipboard khi nhấn nút
+
 function copyText() {
   let color = "";
   if (hex.style.display != 'none') {
@@ -44,6 +52,8 @@ function copyText() {
   } else color = grd.innerHTML;
   navigator.clipboard.writeText(color).then(() => alert("Copied to clipboard: " + color));
 }
+
+// function tạo màu nền gradient khi nhấn nút
 
 function gradientGen() {
   let deg = Math.floor(Math.random() * 360);
@@ -54,8 +64,12 @@ function gradientGen() {
   document.body.style.background = grad;
 }
 
+// tạo sự kiện khi nhấn lần lượt ba nút sẽ chạy các function khác nhau
+
 newColor.addEventListener("click", changeColor);
 copy.addEventListener("click", copyText);
 gradGen.addEventListener("click", gradientGen);
+
+// lệnh để luôn đổi màu nền mỗi khi load trang
 
 document.onload = changeColor();
