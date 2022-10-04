@@ -32,3 +32,4 @@ const allLongestStrings2 = inputArray => {
   });
   return outputArray;
 }
+
